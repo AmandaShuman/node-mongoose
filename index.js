@@ -12,12 +12,10 @@ connect.then(() => {
 
   console.log('Connected correctly to server');
 
-  const newCampsite = new Campsite({ //creates new document based on mongoose model
+  Campsite.create({ //creates new document based on mongoose model
     name: 'React Lake Campground',
     description: 'test'
-  });
-
-  newCampsite.save() //saves doc to database and returns promise on whether that was successful or not
+  }) //auto-saves now 
   .then(campsite => {
     console.log(campsite);
     return Campsite.find();
